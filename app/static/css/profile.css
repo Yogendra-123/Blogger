@@ -1,0 +1,48 @@
+#profile{
+    min-height: 100vh;
+    position: relative;
+}
+.nav{
+    margin-bottom: 50px;
+}
+footer{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+}
+
+.allBlog{
+    width: 80%;
+}
+
+.card-img-top{
+    width: 400px;
+}
+
+#blogs{
+    display: flex;
+    float: left;
+    color: black;
+    margin-top: 100px;
+}
+/*-------------------------*/
+#category{
+    justify-content: center;
+    text-align: center;
+}
+#blog{
+    justify-content: center;
+    text-align: center;
+}
+.recent{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.recent img{
+    margin: 10px;
+}
+.desc{
+    margin: 10px;
+}

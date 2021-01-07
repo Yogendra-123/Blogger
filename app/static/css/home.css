@@ -1,0 +1,105 @@
+*{margin: 0;padding: 0;border:none;box-sizing: border-box;font-family: Calibri;color: white;}
+a{text-decoration: none;color: white}
+a:hover{text-decoration: none;color: white}
+#header{
+    min-height: 100vh;
+    position: relative;
+}
+
+#contents{
+    min-height: 400px;
+    width: 100%;
+   position: relative;
+    margin-bottom: 250px;
+}
+
+#contents h1{
+    font-size: 3rem;
+    letter-spacing: 1.5rem;
+    font-weight: bolder;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: myFont 3s infinite alternate-reverse;
+}
+
+#contents::after{
+    content:'';
+    display: block;
+}
+
+@keyframes myFont {
+    0%{letter-spacing: 1.5rem}
+    100%{letter-spacing: 0.5rem}
+}
+
+.image-gallery{
+    width: 100%;
+    min-height: 250px;
+    position: absolute;
+    bottom:-40%;
+    display: flex;
+    float: left;
+    z-index: 2;
+    justify-content: space-around;
+}
+.image-gallery img{
+    height: 250px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image-gallery img:hover{
+    transform: translateY(-30px);
+}
+
+#gallery{
+    margin: 100px auto;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    float: left;
+}
+
+
+#left-div{
+    width: 50%;
+    border: black;
+}
+
+
+#gallery img{
+    width: 100%;
+    height: auto;
+}
+
+#footer{
+    z-index: 99;
+    width: 100%;
+}
+
+#right-div{
+    width: 50%;
+}
+#top-div{
+    display: flex;
+    float: left;
+    padding: 10px;
+}
+
+.card{
+    overflow: hidden;
+}
+
+.photo img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+#bottom-div{
+    display: flex;
+    float: left;
+}

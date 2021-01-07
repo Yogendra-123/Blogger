@@ -1,0 +1,117 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://use.fontawesome.com/f9a017def1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+    <title>Signup</title>
+  </head>
+  <body>
+  <div id="wrapper">
+    <div id="nav">
+        <nav class="navbar navbar-expand-lg bg-dark">
+          <a class="navbar-brand" href="#" style="color:white;">Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}" style="color:white;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" style="color:white;">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}" style="color:white;">Register</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <div id="content">
+        <form class="row g-3" action="{% url 'signup' %}" method="post" >
+            {% csrf_token %}
+              <div class="col-md-6">
+                <label for="fname" class="form-label required"  style="outline:none;box-shadow: none" >First Name</label>
+                <input type="text" required class="form-control" name="fname" id="fname">
+              </div>
+              <div class="col-md-6">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lname" id="lname"  style="outline:none;box-shadow: none" >
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label required"  style="outline:none;box-shadow: none" >Email</label>
+                <input type="email" required class="form-control" name="email" id="email" email>
+              </div>
+              <div class="col-md-6">
+                <label for="password" class="form-label required">Password</label>
+                <div id="myPassIcon">
+                    <input type="password" required class="form-control" name="password" id="password"  style="outline:none;box-shadow: none" >
+                    <span>
+                        <i class="fa fa-eye-slash" style="cursor: pointer;" id="myIcon" aria-hidden="true" onmouseover="showPass()" onmouseleave="hidePass()"></i>
+                    </span>
+                </div>
+              </div>
+              <div class="col-12 justify-content-center text-center ">
+                <button type="submit" class="btn btn-primary myBtn">Sign up</button>
+              </div>
+        </form>
+    </div>
+
+    <div id="footer">
+        <div id="left-pannel">
+            <a href="#">Site Map</a>
+            <a href="#">Service</a>
+            <a href="#">Courses</a>
+            <a href="#">Featured Blogs</a>
+            <a href="#">Categories</a>
+        </div>
+
+        <div id="right-panel">
+            <span style="color: white;">COPYRIGHT  &#169; yogiptdr999@gmail.com <span id="year"></span></span>
+        </div>
+    </div>
+  </div>
+
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+
+<script>
+    function showPass(){
+        var x = document.getElementById('password');
+        var i = document.getElementById('myIcon');
+        i.classList.remove('fa-eye-slash');
+        i.classList.add('fa-eye');
+        if(x.type === 'password'){
+            x.type = 'text';
+        }
+    }
+
+    function hidePass(){
+        var x = document.getElementById('password');
+        var i = document.getElementById('myIcon');
+        i.classList.remove('fa-eye');
+        i.classList.add('fa-eye-slash');
+        x.type = 'password';
+    }
+
+
+        var date = new Date();
+        var year = date.getFullYear();
+        document.getElementById('year').innerText = year;
+
+</script>
+</html>

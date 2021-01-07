@@ -1,0 +1,140 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v9.0" nonce="DTU2Vdyx"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v9.0" nonce="4XgotHC8"></script>
+  <title>Profile</title>
+  </head>
+  <body>
+        <div id="profile">
+            <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+              <a class="navbar-brand" href="#" style="color:white;">{{name}}</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'profile' %}" style="color:white;">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'post_create' %}" style="color:white;">Create Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div id="blogs">
+                <div style="width: 60%;overflow: hidden">
+                {% if blogs %}
+                    {% for blog in  blogs %}
+                        <div class="allBlog" style="width: 100%">
+                            <div class="card mb-3 w-100 m-4">
+                              <img class="card-img-top" width="100%" height="100%" src="{{blog.image.url}}" alt="Card image cap">
+                              <div class="card-body" style="color: black">
+                                  <h3>{{blog.author.name}}</h3>
+                                <h5 class="card-title" style="color: black">{{blog.title}}</h5>
+                                 <h6>{{blog.short_desc}}</h6><br>
+                                <p class="card-text" style="color: black">{{blog.desc}}</p>
+                                <p class="card-text"><small class="text-muted" style="color: black">Posted on {{blog.created_at}}</small></p>
+                              </div>
+                                <div class="fb-like" data-href="http://127.0.0.1:8000/profile/{{blog.id}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="false"></div>
+                                <div class="fb-comments" data-href="http://127.0.0.1:8000/profile/{{blog.id}}" data-width="" data-numposts="5"></div>
+                                 </div>
+                        </div>
+                    {% endfor %}
+                    {% else %}
+                        <div class="noBlog">
+                            Follow Peoples to see blogs
+                        </div>
+                    {% endif %}
+                    </div>
+                <div id="right-blog" style="width: 45%;">
+                    <div id="category" style="width: 100%;">
+                        <h2 style="color: black">Recent Posts</h2>
+                        <hr>
+                        {% if recent_blogs %}
+                            {% for recent in recent_blogs %}
+                                <div class="recent justify-content-center" style="width: 100%">
+                                    <div style="width: 50%;text-align: end"><img src="{{recent.image.url}}" height="100px" width="100px"></div>
+                                    <div class="desc" style="width: 50%;text-align: left">
+                                        <h5 style="color: black">{{recent.author.name}}</h5>
+                                        <small style="color: black">{{recent.title}}</small><br>
+                                        <small style="color: black">{{recent.short_desc}}</small>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div>
+                                <h5>No Recent Blogs</h5>
+                            </div>
+                        {% endif %}
+                    <div>
+                    <div id="blog" style="width: 100%;padding: 20px">
+                        <h2 style="color: black">Your Posts</h2>
+                        <hr>
+                        {% if blogs %}
+                            {% for blog in blogPosts %}
+                                <div class="recent justify-content-center" style="width: 100%">
+                                    <div style="width: 50%;text-align: end"><img src="{{blog.image.url}}" height="100px" width="100px"></div>
+                                    <div class="desc" style="width: 50%;text-align: left">
+                                        <h5 style="color: black">{{blog.author.name}}</h5>
+                                        <small style="color: black">{{blog.title}}</small><br>
+                                        <small style="color: black">{{blog.short_desc}}</small>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div>
+                                <h5>Create Post First</h5>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+                <!-- ----------------- -->
+            <div id="footer">
+                <div id="left-pannel">
+                    <a href="#">Site Map</a>
+                    <a href="#">Service</a>
+                    <a href="#">Courses</a>
+                    <a href="#">Featured Blogs</a>
+                    <a href="#">Categories</a>
+                </div>
+
+                <div id="right-panel">
+                    <span>COPYRIGHT  &#169; yogiptdr999@gmail.com <span id="year"></span></span>
+                </div>
+            </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </body>
+  <script>
+        var date = new Date();
+        var year = date.getFullYear();
+        document.getElementById('year').innerText = year;
+    </script>
+</html>

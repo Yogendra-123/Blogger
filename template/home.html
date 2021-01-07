@@ -1,0 +1,119 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <nav class="navbar navbar-expand-lg bg-dark">
+          <a class="navbar-brand" href="#" style="color:white;">Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}" style="color:white;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" style="color:white;">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}" style="color:white;">Register</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div id="contents" style='background-image: url({% static "images/banner/image1.jpg" %})'>
+          <h1>BLOGGER</h1>
+          <div class="image-gallery">
+              <div class="card"  style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/gallery/image1.jpg' %}" alt="Card image cap">
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/gallery/image2.jpg' %}" alt="Card image cap">
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/gallery/image3.jpg' %}" alt="Card image cap">
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/gallery/image4.jpg' %}" alt="Card image cap">
+              </div>
+
+          </div>
+      </div>
+
+      <div id="gallery">
+          <div id="left-div">
+              <img src="{% static 'images/gallery/image1.jpg' %}">
+          </div>
+          <div id="right-div">
+              <div id="top-div">
+                  <div class="photo card" >
+                      <img class="card-img-top" src="{% static 'images/gallery/image2.jpg' %}" width="200px" height="200px">
+                  </div>
+                  <div class="photo">
+                      <img src="{% static 'images/gallery/image3.jpg' %}" width="200px" height="200px">
+                  </div>
+                  <div class="photo card">
+                      <img class="card-img-top" src="{% static 'images/gallery/image4.jpg' %}">
+                  </div>
+              </div>
+              <div id="bottom-div">
+                  <div class="photo card">
+                      <img class="card-img-top" src="{% static 'images/gallery/image1.jpg' %}">
+                  </div>
+                  <div class="photo card">
+                      <img class="card-img-top" src="{% static 'images/gallery/image3.jpg' %}">
+                  </div>
+                  <div class="photo card">
+                      <img class="card-img-top" src="{% static 'images/gallery/image2.jpg' %}">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+    </div>
+    <div id="footer">
+        <div id="left-pannel">
+            <a href="#">Site Map</a>
+            <a href="#">Service</a>
+            <a href="#">Courses</a>
+            <a href="#">Featured Blogs</a>
+            <a href="#">Categories</a>
+        </div>
+
+        <div id="right-panel">
+            <span>COPYRIGHT  &#169; yogiptdr999@gmail.com <span id="year"></span></span>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </body>
+  <script>
+        var date = new Date();
+        var year = date.getFullYear();
+        document.getElementById('year').innerText = year;
+    </script>
+</html>
